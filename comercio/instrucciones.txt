@@ -1,0 +1,161 @@
+Actúa como un desarrollador experto en automatización de planillas de Mercado Libre en Python / OpenPyXL.
+
+OBJETIVO:
+Completar de forma masiva y exacta las filas 10 a 20 de la pestaña "Carteles" en el archivo "Publicar-11-02-21_01_04.xlsx", tomando como FILA MOLDE ABSOLUTA la Fila 9 (SKU 5505 - Bandera Estacione Aquí). Se deben replicar todas las columnas fijas y aplicar las variables específicas (Título, Modelo, Color, Stock y Descripción) para cada diseño comercial, respetando estrictamente las fotos ya cargadas en la Columna G y las fórmulas de la plantilla.
+
+REGLAS DE PROTECCIÓN DE LA PLANTILLA:
+1. NO tocar ni sobrescribir las fórmulas de:
+   - Columna C (Cantidad de caracteres): =LEN(...)
+   - Columna P (Cargo por vender)
+   - Columna R (Costo por ofrecer cuotas)
+   - Columna AN (Resumen de errores)
+   - Columna AO (BUYBOX_FORMULA)
+2. NO borrar ni modificar la Columna G (Fotos): mantener las URLs ya cargadas en cada fila.
+
+VALORES CONSTANTES COPIADOS DE LA FILA 9 (MOLDE EXACTO):
+- Col A (Código de catálogo ML): Vacío (None)
+- Col D (Condición): "Nuevo"
+- Col E (Código universal de producto): "El producto no tiene código registrado"
+- Col J (Precio [$]): 35000
+- Col L (Ancho cm): 22
+- Col M (Alto cm): 5
+- Col N (Profundidad cm): 17
+- Col O (Peso físico kg): 0.2
+- Col Q (Cuotas): "No agregar cuotas"
+- Col S (Forma de envío): "Mercado Envíos"
+- Col T (Costo de envío): "Ofrecés envío gratis"
+- Col U (Retiro en persona): "Acepto"
+- Col V (Tipo de garantía): "Garantía del vendedor"
+- Col W (Tiempo de garantía): 3
+- Col X (Unidad de tiempo de garantía): "días"
+- Col Y (Tiempo de disponibilidad): Vacío (None)
+- Col Z (Factura A): "No ofrezco"
+- Col AA (Fabricante): "Zig Flag"
+- Col AC (Marca): "Zig Flag"
+- Col AD (Forma): "Rectangular"
+- Col AE (Materiales): "Poliester"
+- Col AF (Usos recomendados): "Exterior"
+- Col AG (Largo): 150
+- Col AH (Unidad de Largo): "cm"
+- Col AI (Ancho): 75
+- Col AJ (Unidad de Ancho): "cm"
+- Col AK (Personalizado): "No"
+- Col AL (Diámetro): Vacío (None)
+- Col AM (Unidad de Diámetro): "Seleccionar"
+
+DATOS VARIABLES POR FILA (FILAS 10 A 20):
+
+Fila 10:
+- SKU (Col H): 5506
+- Stock (Col I): 3
+- Color (Col F): "Blanca letras rojas"
+- Modelo (Col AB): "Fletes"
+- Título (Col B): "Bandera Fletes Publicidad Cartel Comercio Negocio" (49 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "FLETES" en la plantilla de descripción.
+
+Fila 11:
+- SKU (Col H): 5513
+- Stock (Col I): 2
+- Color (Col F): "Blanca Letras azules"
+- Modelo (Col AB): "Heladería"
+- Título (Col B): "Bandera Heladeria Publicidad Cartel Comercio Negocio" (53 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "HELADERÍA".
+
+Fila 12:
+- SKU (Col H): 5515
+- Stock (Col I): 1
+- Color (Col F): "Escribí o elegí un valor"
+- Modelo (Col AB): "Remate"
+- Título (Col B): "Bandera Remate Publicidad Cartel Comercio Negocio" (49 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "REMATE".
+
+Fila 13:
+- SKU (Col H): 5517
+- Stock (Col I): 3
+- Color (Col F): "Rojo"
+- Modelo (Col AB): "Kiosco Roja"
+- Título (Col B): "Bandera Kiosco Roja Publicidad Cartel Comercio Negocio" (54 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "KIOSCO".
+
+Fila 14:
+- SKU (Col H): 5524
+- Stock (Col I): 2
+- Color (Col F): "Escribí o elegí un valor"
+- Modelo (Col AB): "Liquidación"
+- Título (Col B): "Bandera Liquidacion Publicidad Cartel Comercio Negocio" (54 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "LIQUIDACIÓN".
+
+Fila 15:
+- SKU (Col H): 5527
+- Stock (Col I): 2
+- Color (Col F): "Blanco"
+- Modelo (Col AB): "Maxi Kiosko Blanca"
+- Título (Col B): "Bandera Maxi Kiosko Blanco Publicidad Cartel Negocio" (52 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "MAXI KIOSKO".
+
+Fila 16:
+- SKU (Col H): 5541
+- Stock (Col I): 2
+- Color (Col F): "Rojo"
+- Modelo (Col AB): "Remises 24 Hs Roja"
+- Título (Col B): "Bandera Remises 24 Hs Roja Publicidad Cartel Negocio" (53 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "REMISES 24 HS".
+
+Fila 17:
+- SKU (Col H): 5543
+- Stock (Col I): 1
+- Color (Col F): "Amarillo y Rojo"
+- Modelo (Col AB): "Remises Amarilla y Roja"
+- Título (Col B): "Bandera Remises Amarillo Rojo Publicidad Cartel Negocio" (55 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "REMISES".
+
+Fila 18:
+- SKU (Col H): 5545
+- Stock (Col I): 1
+- Color (Col F): "Blanco y Negro"
+- Modelo (Col AB): "Remises Blanca y Negra"
+- Título (Col B): "Bandera Remises Blanco Negro Publicidad Cartel Negocio" (54 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "REMISES".
+
+Fila 19:
+- SKU (Col H): 5548
+- Stock (Col I): 1
+- Color (Col F): "Escribí o elegí un valor"
+- Modelo (Col AB): "Comercial 247"
+- Título (Col B): "Bandera Comercial Publicidad Cartel Negocio Promocion" (53 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "COMERCIO".
+
+Fila 20:
+- SKU (Col H): 5522
+- Stock (Col I): 2
+- Color (Col F): "Escribí o elegí un valor"
+- Modelo (Col AB): "Lava Autos"
+- Título (Col B): "Bandera Lava Autos Publicidad Cartel Comercio Negocio" (53 car.)
+- Descripción (Col K): Reemplazar [RUBRO] por "LAVA AUTOS".
+
+MOLDE DE TEXTO PARA DESCRIPCIÓN (COLUMNA K, BASADO EN FILA 9):
+
+VISIBILIDAD PARA TU NEGOCIO: Bandera Publicitaria [RUBRO] (1,5 MTS DE LARGO x 75 CM DE ALTO).
+Una solución práctica, economica y de alto impacto para identificar tu comercio, destacar su fachada y captar clientes.
+
+BENEFICIOS CLAVE
+
+- Alta visibilidad: Medidas de 150 x 75 cm que favorecen una lectura clara a distancia.
+- Resistente a la intemperie: Confeccionada para uso exterior, preparada para soportar la exposición al sol, la lluvia y el viento, conservando sus colores y terminaciones.
+- Fácil y rápida instalación: Incluye 2 cordones dobles reforzados, listos para sujetar.
+
+CARACTERÍSTICAS TÉCNICAS
+
+- Medidas: 150 cm de largo x 75 cm de alto.
+- Material: Tela Nylon DUPONT de alta resistencia.
+- Estampado: Fijación térmica del color con tratamiento de protección UV.
+- Confección: Doble costura perimetral con hilo reforzado de poliéster.
+- Uso: Exterior e interior.
+
+STOCK Y ENVÍOS
+
+Producto en stock para despacho inmediato.
+Envíos a todo el país mediante Mercado Envíos en embalaje protegido.
+Retiro en persona disponible en Lanús (zona Remedios de Escalada).
+
+Hacé que tu negocio se vea desde lejos! Comprá ahora y recibí tu bandera lista para instalar.
